@@ -28,6 +28,12 @@ app.use(
   })
 )
 
+import userRouter from "./router/userRouter.js"
+import doctorRouter from "./router/doctor.route.js"
+
+app.use("/api/v1/user", userRouter)
+app.use("/api/v1/doctor", doctorRouter)
+
 app.use(customError)
 
 export default app

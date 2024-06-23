@@ -1,9 +1,13 @@
 import mongoose from "mongoose"
 
 const doctorSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
     required: [true, "First Name Is Required!"],
+  },
+  lastName: {
+    type: String,
+    required: [true, "Last Name Is Required!"],
   },
   doctorDepartment: {
     type: String,
