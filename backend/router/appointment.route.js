@@ -1,9 +1,17 @@
 import express from "express"
-import { isPatient } from "../middleware/auth.js"
-import { newAppointment } from "../controller/appointment.controller.js"
+import { isAdmin, isPatient } from "../middleware/auth.js"
+import {
+  deleteAppointment,
+  getAllAppointments,
+  newAppointment,
+  updateAppointmentStatus,
+} from "../controller/appointment.controller.js"
 
 const router = express.Router()
 
-router.post("/post/:id", isPatient, newAppointment)
+router.post("/new/:id", isPatient, newAppointment)
+router.get("/getAll", isAdmin, getAllAppointments)
+router.put("/update/:id", isAdmin, updateAppointmentStatus)
+router.delete("/delete/:id", isAdmin, deleteAppointment)
 
 export default router
