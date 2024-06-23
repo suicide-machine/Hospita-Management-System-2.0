@@ -39,27 +39,19 @@ const appointmentSchema = new mongoose.Schema({
     required: [true, "Department Name Is Required!"],
   },
   doctor: {
-    name: {
+    firstName: {
       type: String,
-      required: [true, "Doctor Name Is Required!"],
+      required: [true, "First Name Is Required!"],
+    },
+    lastName: {
+      type: String,
+      required: [true, "Last Name Is Required!"],
     },
   },
-  address: [
-    {
-      country: {
-        type: String,
-      },
-      city: {
-        type: String,
-      },
-      address1: {
-        type: String,
-      },
-      zipCode: {
-        type: Number,
-      },
-    },
-  ],
+  address: {
+    type: String,
+    required: true,
+  },
   doctorId: {
     type: mongoose.Schema.ObjectId,
     required: [true, "Doctor Id Is Invalid!"],
